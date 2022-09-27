@@ -1,0 +1,145 @@
+<h2>Template dinamicos:</h2>
+
+<div class="row">
+    <div class="col">
+
+        <form (ngSubmit)="guardar()" #miFormularioSwitch="ngForm">
+
+
+            <div class="mb-3 row">
+                <label class="col-sm-3 col-form-label fw-bold">Genero:</label>
+                <div class="col-sm-9">
+
+                    <div class="form-check">
+                        <input 
+                                class="form-check-input" 
+                                type="radio"
+                                value="M"
+                                [(ngModel)]="form.genero"
+                                name="radioGenero" 
+                                id="flexRadioDefault1"
+                        >
+                        <label class="form-check-label" for="flexRadioDefault1">
+                          Masculino
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input 
+                                class="form-check-input" 
+                                type="radio" 
+                                value="F"
+                                [(ngModel)]="form.genero"
+                                name="radioGenero" 
+                                id="flexRadioDefault2" 
+                                checked
+                        >
+                        <label class="form-check-label" for="flexRadioDefault2">
+                          Femenino
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input 
+                                class="form-check-input" 
+                                type="radio"
+                                value="0"
+                                [(ngModel)]="form.genero"
+                                name="radioGenero" 
+                                id="flexRadioDefault3" 
+                                checked
+                                required
+                        >
+                        <label class="form-check-label" for="flexRadioDefault3">
+                          Otro
+                        </label>
+                    </div>
+
+        
+                    
+                    
+                </div>
+            </div>
+
+
+            <div class="mb-3 row">
+                <label class="col-sm-3 col-form-label fw-bold">Notificaciones:</label>
+                <div class="col-sm-9">
+
+                    <div class="form-check form-switch pt-2">
+                        <input 
+                                class="form-check-input" 
+                                type="checkbox" 
+                                value="false" 
+                                [(ngModel)]="form.notificar"
+                                name="checkboxNotifi"
+                                id="flexSwitchCheckChecked" 
+                                checked
+                                required
+                        >
+                        <label class="form-check-label" for="flexSwitchCheckChecked">Quiero recibir notificaciones!!!</label>
+                    </div>
+
+                </div>
+            </div>
+
+
+            <div class="mb-3 row">
+                <label class="col-sm-3 col-form-label fw-bold"></label>
+                <div class="col-sm-9">
+
+                    <div class="form-check">
+
+                        <input 
+                            class="form-check-input" 
+                            type="checkbox" 
+                            value="" 
+                            name="checkboxTermino"
+                            [(ngModel)]="form.terminos"
+                            id="defaultCheck1"
+                            required
+                        >   
+                        <label class="form-check-label px-2" for="defaultCheck1">
+                            Acepto los terminos y condiciones!!
+                        </label>
+
+                    </div>
+                </div>
+            </div>
+
+    
+
+
+            <div class="row">
+                <div class="col">
+    
+                    <button type="button" [disabled]="miFormularioSwitch.invalid" (click)="guardar()" class="btn btn-primary float-end">Enviar</button>
+    
+                </div>
+            </div>
+
+        </form>
+
+
+        <div class="row">
+            <div class="col">
+
+                <span class="fw-bold">Radio</span>
+                <pre>{{miFormularioSwitch.controls['radioGenero'].value | json}}</pre>
+        
+                <span class="fw-bold">Switch</span>
+                <pre>{{miFormularioSwitch.controls['checkboxNotifi'].value | json}}</pre>
+        
+                <span class="fw-bold">Check</span>
+                <pre>{{miFormularioSwitch.controls['checkboxTermino'].value | json}}</pre>
+
+
+            </div>
+        </div>
+    
+        
+
+       
+
+
+    </div>
+</div>
+

@@ -1,0 +1,88 @@
+<h2>Reactive dinamicos:</h2>
+
+<div class="row">
+    <div class="col">
+
+        <form (ngSubmit)="guardar()" [formGroup]="miFormulario" >
+
+            <div class="mb-3 row">
+                <label class="col-sm-2 col-form-label fw-bold">Nombre:</label>
+                <div class="col-sm-10">
+                    <input
+                        type="text"
+                        formControlName="nombre"
+                        class="form-control" 
+                        placeholder="Nombre de la persona"
+                    >
+                    <span
+                        *ngIf="campoEsValido('nombre')"
+                        class="form-text text-danger"
+                    >
+                        El nombre de la persona debe contener almenos de 3 letras
+                    </span>
+                </div>
+            </div>
+
+            <div class="mb-3 row">
+                <label class="col-sm-2 col-form-label fw-bold">Juego:</label>
+                <div class="col-sm-10">
+
+
+                    <div class="input-group">
+
+                        <input
+                            type="text"
+                            formControlName="nuevoJuego"
+                            class="form-control" 
+                            placeholder="Nombre del juego"
+                        
+                        >
+                        <button class="btn btn-outline-primary" type="button">Agregar</button>
+                        <span 
+                            *ngIf="campoEsValido('nuevoJuego')"
+                            class="form-text text-danger"
+                        >
+                            El nombre del juego debe contener almenos de 3 letras
+                        </span>
+
+                
+                    </div>
+                    
+                    
+                </div>
+            </div>
+
+            <!--<div class="mb-3 row">
+                
+                <label class="col-sm-3 col-form-label fw-bold">Favoritos:</label>
+                
+                <div  class="col-sm-9 " formArrayName="favoritos">
+                
+                    <div class="input-group p-2" *ngFor="let favorito of miFormulario.controls['favoritos'].controls; let i = index">
+                        <input [formControlName]="i" class="form-control">
+                        <button class="btn btn-outline-danger" type="button">borrar</button>
+                    </div>
+                    
+                   
+                </div>
+            </div>-->
+
+
+            <div class="row">
+                <div class="col">
+    
+                    <button type="button" class="btn btn-primary float-end">Enviar</button>
+    
+                </div>
+            </div>
+
+        </form>
+
+       
+
+
+    </div>
+</div>
+
+
+
