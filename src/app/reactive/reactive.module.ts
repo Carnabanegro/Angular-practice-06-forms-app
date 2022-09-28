@@ -6,13 +6,15 @@ import { BasicosComponent } from './components/basicos/basicos.component';
 import { DinamicosComponent } from './components/dinamicos/dinamicos.component';
 import { SwitchesComponent } from './components/switches/switches.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { SelectoresComponent } from './components/selectores/selectores.component';
 
 
 @NgModule({
   declarations: [
     BasicosComponent,
     DinamicosComponent,
-    SwitchesComponent
+    SwitchesComponent,
+    SelectoresComponent
   ],
   imports: [
     CommonModule,

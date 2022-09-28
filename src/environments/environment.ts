@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  url:"http://localhost:3000"
+  url:"http://localhost:3000",
+  urlCountries: "https://restcountries.com/v3.1/"
 };
 
 /*

@@ -1,0 +1,81 @@
+<h2>Selector Anidados de paises:</h2>
+<hr>
+
+
+<div class="row">
+    <div class="col">
+
+        <form [formGroup]="formSelectores" (ngSubmit)="guardar()">
+
+            <div class="mb-3 row">
+    
+                <label class="col-sm-3 col-form-label">Continente:</label>
+                <div class="col-sm-9">
+                    <select class="form-control" formControlName="continente">
+                        <option value="" disabled>!!--Seleccione una opcion--!!</option>
+                        <option *ngFor="let optionContinente of continentes ; let i = index" [value]="optionContinente | lowercase">{{optionContinente}}</option>
+                    </select>
+                </div>
+               
+    
+            </div>
+    
+            <div class="mb-3 row">
+    
+                <label class="col-sm-3 col-form-label">Pais:</label>
+                <div class="col-sm-9">
+                    <select class="form-control" formControlName="pais">
+                        <option value="">!!--Seleccione una opcion--!!</option>
+                        <option *ngFor="let optionPais of paises ; let i = index" [value]="optionPais.name.common">{{optionPais.name.common}} - {{optionPais.cca3}} </option>
+                    </select>
+                </div>
+            
+            </div>
+    
+            <div class="mb-3 row">
+                <label class="col-sm-3 col-form-label">Pais Limitrofe:</label>
+                <div class="col-sm-9">
+                    <select class="form-control" formControlName="limitrofe">
+                        <option value="">!!--Seleccione una opcion--!!</option>
+                        <option *ngFor="let optionLimitrofe of limitrofes ; let i = index" [value]="optionLimitrofe.name.common">{{optionLimitrofe.name.common}} - {{optionLimitrofe.cca3}} </option>
+                    </select>
+                </div>
+            
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <button type="submit" class="btn btn-primary float-end">Guardar</button>
+                </div>
+            </div>
+        
+    
+    </form>
+
+   
+
+</div>
+
+
+
+
+<div class="row pt-3">
+
+    <h3>Formulario</h3>
+    <pre>{{formSelectores.valid | json}}</pre>
+    
+
+    <h3>Continente</h3>
+    <pre>{{formSelectores.controls['continente'].valid | json}}</pre>
+    <pre>{{formSelectores.controls['continente'].value | json}}</pre>
+
+    <h3>Pais</h3>
+    <pre>{{formSelectores.controls['pais'].valid | json}}</pre>
+    <pre>{{formSelectores.controls['pais'].value | json}}</pre>
+
+
+    <h3>Limitrofe</h3>
+    <pre>{{formSelectores.controls['limitrofe'].valid | json}}</pre>
+    
+
+</div>

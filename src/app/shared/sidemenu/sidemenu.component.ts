@@ -22,6 +22,7 @@ export class SidemenuComponent implements OnInit {
     {text: 'Basicos' ,route: './reactive/basicos' },
     {text: 'Dinamicos' ,route: './reactive/dinamicos' },
     {text: 'Switches' ,route: './reactive/switches' },
+    {text: 'Selectores' ,route: './reactive/selectores' },
   ]
 
   authMenu : Menu[] = [

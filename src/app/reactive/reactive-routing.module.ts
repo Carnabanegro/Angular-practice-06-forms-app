@@ -3,12 +3,14 @@ import { RouterModule, Routes } from '@angular/router';
 import { BasicosComponent } from './components/basicos/basicos.component';
 import { DinamicosComponent } from './components/dinamicos/dinamicos.component';
 import { SwitchesComponent } from './components/switches/switches.component';
+import { SelectoresComponent } from './components/selectores/selectores.component';
 
 const routes: Routes = [
   {path:'',children:[
     {path:'basicos', component:BasicosComponent},
     {path:'dinamicos', component:DinamicosComponent},
     {path:'switches', component: SwitchesComponent},
+    {path:'selectores', component: SelectoresComponent},
     {path:'**', redirectTo:'basicos'}
   ]}
 ];
