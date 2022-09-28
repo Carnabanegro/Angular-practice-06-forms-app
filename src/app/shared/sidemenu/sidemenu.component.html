@@ -32,6 +32,29 @@
 
 </ul>
 
+
+
+
+</div>
+
+
+<div>
+
+    <h2><strong>Reactive forms</strong>:</h2>
+
+    <ul class="list-group">
+
+        <li 
+            *ngFor="let option of authMenu"
+            class="list-group-item"
+            [routerLink]="[option.route]"
+            routerLinkActive="active"
+        >
+            {{option.text}}
+        </li>
+    
+    </ul>
+
 </div>
 
 

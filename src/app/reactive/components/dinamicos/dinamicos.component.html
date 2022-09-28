@@ -32,14 +32,15 @@
 
                         <input
                             type="text"
-                            formControlName="nuevoJuego"
+                            [formControl]="nuevoFavorito"
                             class="form-control" 
                             placeholder="Nombre del juego"
+                            (keyup.enter)="agregarFavorito()"
                         
                         >
-                        <button class="btn btn-outline-primary" type="button">Agregar</button>
+                        <button class="btn btn-outline-primary" type="button" (click)="agregarFavorito()">Agregar</button>
                         <span 
-                            *ngIf="campoEsValido('nuevoJuego')"
+                            *ngIf="campoEsValido('favoritos')"
                             class="form-text text-danger"
                         >
                             El nombre del juego debe contener almenos de 3 letras
@@ -52,20 +53,16 @@
                 </div>
             </div>
 
-            <!--<div class="mb-3 row">
+            <div class="mb-3 row" formArrayName="favoritos">
                 
                 <label class="col-sm-3 col-form-label fw-bold">Favoritos:</label>
                 
-                <div  class="col-sm-9 " formArrayName="favoritos">
-                
-                    <div class="input-group p-2" *ngFor="let favorito of miFormulario.controls['favoritos'].controls; let i = index">
+                <div class="input-group p-2" *ngFor="let favorito of favoritos.controls; let i = index">
                         <input [formControlName]="i" class="form-control">
-                        <button class="btn btn-outline-danger" type="button">borrar</button>
-                    </div>
-                    
-                   
+                        <button class="btn btn-outline-danger" type="button" (click)="borrarFavorito(i)">borrar</button>
                 </div>
-            </div>-->
+             
+            </div>
 
 
             <div class="row">

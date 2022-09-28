@@ -3,7 +3,7 @@
 <div class="row">
     <div class="col">
 
-        <form>
+        <form [formGroup]="miFormulario" (ngSubmit)="guardar()">
 
 
             <div class="mb-3 row">
@@ -16,7 +16,7 @@
                                 type="radio"
                                 value="M"
                             
-                                name="radioGenero" 
+                                formControlName="genero" 
                                 id="flexRadioDefault1"
                         >
                         <label class="form-check-label" for="flexRadioDefault1">
@@ -29,9 +29,8 @@
                                 type="radio" 
                                 value="F"
                               
-                                name="radioGenero" 
+                                formControlName="genero" 
                                 id="flexRadioDefault2" 
-                                checked
                         >
                         <label class="form-check-label" for="flexRadioDefault2">
                           Femenino
@@ -43,10 +42,8 @@
                                 type="radio"
                                 value="0"
                                
-                                name="radioGenero" 
+                                formControlName="genero" 
                                 id="flexRadioDefault3" 
-                                checked
-                                required
                         >
                         <label class="form-check-label" for="flexRadioDefault3">
                           Otro
@@ -70,10 +67,9 @@
                                 type="checkbox" 
                                 value="false" 
                               
-                                name="checkboxNotifi"
+                                formControlName="notifi"
                                 id="flexSwitchCheckChecked" 
-                                checked
-                                required
+                                
                         >
                         <label class="form-check-label" for="flexSwitchCheckChecked">Quiero recibir notificaciones!!!</label>
                     </div>
@@ -92,10 +88,10 @@
                             class="form-check-input" 
                             type="checkbox" 
                             value="" 
-                            name="checkboxTermino"
+                            formControlName="terminos"
                            
                             id="defaultCheck1"
-                            required
+
                         >   
                         <label class="form-check-label px-2" for="defaultCheck1">
                             Acepto los terminos y condiciones!!
@@ -111,7 +107,7 @@
             <div class="row">
                 <div class="col">
     
-                    <button type="button"  class="btn btn-primary float-end">Enviar</button>
+                    <button type="submit" [disabled]="miFormulario.invalid" class="btn btn-primary float-end">Enviar</button>
     
                 </div>
             </div>
@@ -119,21 +115,21 @@
         </form>
 
 
-       <!-- <div class="row">
+       <div class="row">
             <div class="col">
 
                 <span class="fw-bold">Radio</span>
-                <pre>{{miFormularioSwitch.controls['radioGenero'].value | json}}</pre>
+                <pre>{{miFormulario.value | json}}</pre>
         
                 <span class="fw-bold">Switch</span>
-                <pre>{{miFormularioSwitch.controls['checkboxNotifi'].value | json}}</pre>
+                <pre>{{persona | json}}</pre>
         
                 <span class="fw-bold">Check</span>
-                <pre>{{miFormularioSwitch.controls['checkboxTermino'].value | json}}</pre>
+                <pre>{{miFormulario.valid | json}}</pre>
 
 
             </div>
-        </div>-->
+        </div>
     
         
 

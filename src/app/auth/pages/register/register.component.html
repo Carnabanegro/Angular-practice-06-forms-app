@@ -1,0 +1,115 @@
+<h2>Validaciones Reactivas</h2>
+<hr>
+
+
+<div class="row justify-content-center align-content-center">
+
+    <div class="col-8">
+
+        <form autocomplete="off" [formGroup]="formularioRegistro" (ngSubmit)="guardar()">
+
+            <div class="row mb-3">
+                    <label class="col-sm-3 col-form-label">Nombre y apellido</label>
+                    <div class="col-sm-9">
+
+                        <input 
+                            formControlName="nombre" 
+                            type="text"
+                            class=" form-control"
+                            placeholder="Nombre de usuario"
+                        >
+                        <span *ngIf="campoValido('nombre')" class="form-text text-danger p-2">Debe ser en formato nombre y apellido</span>
+                    </div> 
+            </div>  
+
+            <div class="row mb-3">
+                <label class="col-sm-3 col-form-label">Email</label>
+                <div class="col-sm-9">
+
+                    <input 
+                        formControlName="email" 
+                        type="email"
+                        class=" form-control"
+                        placeholder="Email"
+                    >
+                    <span *ngIf="campoValido('email')" class="form-text text-danger p-2">{{emailErrorMsg}}</span>
+                    <!--<span *ngIf="emailRequired()" class="form-text text-danger p-2">El correo es obligatorio *</span>
+                    <span *ngIf="emailFormato()" class="form-text text-danger p-2">Formato mail debe ser: nombre@mail.com</span>
+                    <span *ngIf="mailUsado()" class="form-text text-danger p-2">El mail ya esta en uso</span>-->
+                </div> 
+            </div> 
+
+
+            <div class="row mb-3">
+                <label class="col-sm-3 col-form-label">Username</label>
+                <div class="col-sm-9">
+
+                    <input 
+                        formControlName="username" 
+                        type="text"
+                        class=" form-control"
+                        placeholder="Username"
+                    >
+                    <span *ngIf="campoValido('username')" class="form-text text-danger p-2">El username no puede ser strider</span>
+                </div> 
+            </div>
+            
+            <div class="row mb-3">
+                <label class="col-sm-3 col-form-label">Contraseña</label>
+                <div class="col-sm-9">
+
+                    <input 
+                        formControlName="password" 
+                        type="password"
+                        class=" form-control"
+                        placeholder="Contraseña"
+                    >
+                    <span *ngIf="campoValido('password')" class="form-text text-danger p-2">El password debe contener mas de 6 caracteres</span>
+                </div> 
+            </div>
+            
+            <div class="row mb-3">
+                <label class="col-sm-3 col-form-label">Re Contraseña</label>
+                <div class="col-sm-9">
+
+                    <input 
+                        formControlName="password2" 
+                        type="password"
+                        class="form-control"
+                        placeholder="Confirmar contraseña"
+                    >
+                    <span *ngIf="campoValido('password2')" class="form-text text-danger p-2">Las contraseñas no son iguales</span>
+                </div> 
+            </div> 
+
+            <div class="row justify-content-center">
+                <div class="col">
+                       <button [disabled]="formularioRegistro.pending" type="submit" class="btn btn-primary float-end">Guardar</button>
+                </div>
+            </div>
+
+
+        </form>
+
+
+    </div>
+
+    <h2>FormValid</h2>
+    <pre>{{formularioRegistro.valid}}</pre>
+
+    <h2>Nombre</h2>
+    <pre>{{formularioRegistro.controls['nombre'].valid | json}}</pre>
+
+    <h2>Email</h2>
+    <pre>{{formularioRegistro.controls['email'].valid | json}}</pre>
+
+    <h2>Username</h2>
+    <pre>{{formularioRegistro.controls['username'].valid | json}}</pre>
+
+    <h2>Password</h2>
+    <pre>{{formularioRegistro.controls['password'].valid | json}}</pre>
+
+    <h2>Password2</h2>
+    <pre>{{formularioRegistro.controls['password2'].valid | json}}</pre>
+
+</div>
