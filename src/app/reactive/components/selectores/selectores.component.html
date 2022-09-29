@@ -20,27 +20,34 @@
     
             </div>
     
-            <div class="mb-3 row">
+            <div class="mb-3 row" *ngIf="paises.length !== 0">
     
                 <label class="col-sm-3 col-form-label">Pais:</label>
                 <div class="col-sm-9">
-                    <select class="form-control" formControlName="pais">
+                    <select class="form-control" [disabled]="paises.length === 0" formControlName="pais">
                         <option value="">!!--Seleccione una opcion--!!</option>
-                        <option *ngFor="let optionPais of paises ; let i = index" [value]="optionPais.name.common">{{optionPais.name.common}} - {{optionPais.cca3}} </option>
+                        <option *ngFor="let optionPais of paises ; let i = index" [value]="optionPais.cca3">{{optionPais.name.common}} - {{optionPais.cca3}} </option>
                     </select>
                 </div>
             
             </div>
     
-            <div class="mb-3 row">
+            <div class="mb-3 row" *ngIf="limitrofes.length !== 0">
                 <label class="col-sm-3 col-form-label">Pais Limitrofe:</label>
                 <div class="col-sm-9">
-                    <select class="form-control" formControlName="limitrofe">
+                    <select class="form-control"  formControlName="limitrofe">
                         <option value="">!!--Seleccione una opcion--!!</option>
-                        <option *ngFor="let optionLimitrofe of limitrofes ; let i = index" [value]="optionLimitrofe.name.common">{{optionLimitrofe.name.common}} - {{optionLimitrofe.cca3}} </option>
+                        <option *ngFor="let optionLimitrofe of limitrofes ; let i = index" [value]="optionLimitrofe">{{optionLimitrofe}} </option>
                     </select>
                 </div>
             
+            </div>
+
+
+            <div class="row"*ngIf="cargando">
+                <div class="col">
+                    <div class="alert alert-primary">Cargando...</div>
+                </div>
             </div>
 
             <div class="row">
